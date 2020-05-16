@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>使用 VSCode 和 MinGW 实现 Windows C/C++ 开发</title>
+    <url>/2020/02/10/%E4%BD%BF%E7%94%A8-VSCode-%E5%92%8C-MinGW-%E5%AE%9E%E7%8E%B0-Windows-C-C-%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p><a href="https://nuwen.net/mingw.html" target="_blank" rel="noopener">MinGW Distro</a><br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a><br><a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">官方文档</a></p>
+<a id="more"></a>
+
+<hr>
+<ul>
+<li><p>下载并安装 VSCode</p>
+</li>
+<li><p>在 VSCode 中安装 C/C++ 插件</p>
+</li>
+<li><p>下载并安装 MinGW Distro，将其解压至 C:\Program Files\MinGW</p>
+</li>
+<li><p>打开 cmd 输入以下命令添加环境变量</p>
+</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">setx /M <span class="built_in">path</span> "<span class="variable">%PATH%</span>;C:\Program Files\MinGW\bin\"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启 cmd 输入以下命令以检查环境变量是否正确添加</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">g++ --version</span><br><span class="line">gdb --version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正确添加环境变量后，打开 VSCode，选择存放 C/C++ 代码的文件夹，新建 HelloWorld 文件夹并在其中新建 HelloWorld.cpp 文件并保存</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在终端中输入以下命令创建工作区</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>点击终端-运行生成任务，选择 C/C++:g++.exe build active file，你会发现 VSCode 在工作区目录中创建了 .vscode 文件夹以及其中的 tasks.json (最好使用 cmd 生成来避免问题)</p>
+</li>
+<li><p>点击调试-启动调试，选择 C++ (GDB/LLDB)，选择 g++.exe build and debug active file，你会发现 VSCode 在 .vscode 文件夹中创建了 launch.json</p>
+</li>
+<li><p>可以生成和调试之后，如果想更多修改 C/C++ 插件的设置，可以按 Ctrl+Shift+P 搜索 C/C++: 编辑配置，这将在 .vscode 文件夹中创建 c_cpp_properties.json 文件继而修改配置，修改 C/C++ 标准便是在这一步进行。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>WorkTips</category>
+      </categories>
+      <tags>
+        <tag>开发环境</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yoga C940 使用3个月后感想</title>
+    <url>/2020/03/05/C940-3%E4%B8%AA%E6%9C%88%E4%BD%BF%E7%94%A8%E5%90%8E%E6%84%9F%E6%83%B3/</url>
+    <content><![CDATA[<p>一直都想有一台带触控屏的 Windows 二合一笔记本，本来是非常心水 Surface Pro 的，但是看到 C940 的配置和价格之后我只想说——真香。</p>
+<a id="more"></a>
+
+<p>很早之前，大概还是 Windows 8 时期就听过以二合一闻名的 Yoga 系列，但是真正让我动了买二合一心思的还是 Surface Pro，至于理由，其实是肝舰 C。。。</p>
+<p>当然，碍于学业还有钱包的问题，一直都没有买。而大学入学时，考虑到性能问题，最终入的还是 P775TM1-G 这种旅行重量重达将近 6kg 的大砖块。。因为几乎每天都要来往于实验室和宿舍，特别是晚上 21:30 摸完鱼回宿舍时还要背着那么重的电脑，最终压断了我为了省钱苦苦支撑的脊椎，开始考虑入手一台轻薄本。</p>
+<p>最初，我仍然想选择 Surface Pro 7，但看到 C940 的评测之后几经考虑还是选择了 C940。</p>
+<p>让我放弃苏菲的原因大概时以下几个：</p>
+<ul>
+<li>第七代的苏菲终于终于终于引入了 USB-C，只有一个，而且不是 Thunderbolt 3。。而 C940 有一个 USB-A，两个 Thunderbolt 3。</li>
+<li>价格昂贵，苏菲在预想价位能买到 i5-1035G4，8GB内存，256GB SSD（包含键盘盖和 Surface Pen）的型号。同价位的 C940 则有 i7-1065G7，16GB 内存，以及整整 1TB 的 PM981A。</li>
+<li>苏菲被人吐槽很多的品控、售后等问题。</li>
+</ul>
+<p>最终，我下单了 C940。开箱时我就被它的外观惊艳到了——精巧的外观、机身摸起来顺滑的手感、深灰色的配色，以及最重要的，够轻够薄。</p>
+<p>配置如下：</p>
+<blockquote>
+<p>CPU: Intel Core i7-1065G7 (4C8T, 1.5GHz Base, up to 3.9GHz)<br>Graphics: Intel Iris Plus 940 (64EUs)<br>RAM: 16GB LPDDR4X 3733MHz<br>Storage: 1TB NVMe PM981A<br>Screen: 14 inch 4K IPS (3840 x 2160, 16:9, HDR400)<br>Weight: 1.35kg</p>
+</blockquote>
+<p>对于一个轻薄本来说，这样的性能无疑是够用的。其中 i7-1065G7 作为 Ice Lake 10nm 的新产品，其性能让我很是期待，其 Cinebench R20 结果如下：</p>
+<img src="/2020/03/05/C940-3%E4%B8%AA%E6%9C%88%E4%BD%BF%E7%94%A8%E5%90%8E%E6%84%9F%E6%83%B3/C940_CinebenchR20.png" class="" title="C940_CinebenchR20">
+
+<p>多核性能已经接近 i7-6700HQ，CPU 性能是相当不错的。至于 Iris Plus 性能有多强我倒是不太关注，至少对于一般桌面应用在 4K 分辨率下的表现我还是很满意的。</p>
+<p>说到 4K 就不得不说一下这块屏幕。3840 x 2160 的 IPS，支持十点触控，支持手写笔（笔记本内置一个 4096 级压感的）。从网上找到的参数:</p>
+<blockquote>
+<ul>
+<li>86.5% DCI-P3 色域以及 98.8% sRGB 色域</li>
+<li>最高亮度 550 nits</li>
+<li>对比度 1478:1</li>
+</ul>
+</blockquote>
+<p>高分屏给我带来的最直观的观感便是 Windows 在 1080p 奥利给一样的字体渲染明显改善。。终于可以摆脱 Mactype 这种有时候会明显拖慢速度的不完美解法了。</p>
+<p>再说说实际日常体验。</p>
+<p>从去年12月初购买，到现在已有 3 个月的使用，日常就是 JetBrains 系的 IDE，VSCode 之类的编辑器。除此之外还有较简单的笔记、网页、视频等轻量任务，其余较重的任务都交给 P775TM1-G 的 i7-8700k、32GB 内存完成了。可以说 i7-1065G7 和 16GB 内存基本完美满足了我对轻薄本的性能要求。</p>
+<p>续航是本机最大的槽点之一。4K 屏的耗电量是真的有点高。。正常浏览网页、写代码什么的能坚持 3-5 小时不等，可以说续航并不优秀。</p>
+<p>除此之外，Sound-Bar 绝对是本机又一大亮点。配合 Dolby Atmos，外放质量足够好。当然和我的 XBA-Z5 以及 WH-1000XM2 比起来肯定还是逊色很多的（废话，这么比根本不公平）。</p>
+<p>总结：<br>优点：</p>
+<ul>
+<li>外观、机身工艺一流</li>
+<li>非常有优势的价格</li>
+<li>两个满血 Thunderbolt 3 接口</li>
+<li>爽到的 4K 屏</li>
+<li>16GB 内存相对于 8GB 的提升真的很明显</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>i7-1065G7 对我来说够用的性能。</li>
+<li>虽然单纯的触控在 Windows 下体验非常糟糕，但是触控的存在对于单纯的键鼠操作还是起到了锦上添花二点作用。</li>
+<li>键盘手感还不错</li>
+<li>我用不到的 Wi-Fi 6</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>即使内置了 60Wh 的大电池，续航依然不尽如人意</li>
+<li>有时机身温度较高</li>
+<li>键盘方向键反人类设计</li>
+</ul>
+<p>综合来说，这是让我非常满意的一台二合一笔记本。价格便宜（相对来说），强劲的性能（相对来说），优质的屏幕（4K 触控），锦上添花的特点（Sound-Bar），还有联想的品控和售后，这款产品在相对小众的二合一市场中注定拥有它的一席之地。</p>
+]]></content>
+      <categories>
+        <category>TechColumn</category>
+      </categories>
+      <tags>
+        <tag>C940</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>今天你蓝屏了吗？</title>
+    <url>/2020/04/13/%E4%BB%8A%E5%A4%A9%E4%BD%A0%E8%93%9D%E5%B1%8F%E4%BA%86%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<p><code>#Bug10</code></p>
+<a id="more"></a>
+
+<p>2020.4.13</p>
+<ul>
+<li>WebStorm 安装 node 插件时 <code>IRQL_NOT_LESS_OR_EQUAL</code>.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>吐槽</category>
+      </categories>
+      <tags>
+        <tag>BSOD</tag>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro 安装后的配置</title>
+    <url>/2020/04/02/Manjaro-%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>闲得无聊又把 Manjaro 装回来了。。正好这次做个笔记看都干了些啥。<br>仅适用于 Manjaro KDE，对于其他桌面环境仅供参考。</p>
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Set Pacman Mirrors</span></span><br><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add archlinuxcn repo</span></span><br><span class="line">sudo nano /etc/pacman.conf</span><br><span class="line"><span class="comment">## Add following into the back of the file</span></span><br><span class="line"><span class="comment"># [archlinuxcn]</span></span><br><span class="line"><span class="comment"># SigLevel = Optional TrustedOnly</span></span><br><span class="line"><span class="comment"># Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Update repos &amp;&amp; Upgrade all packages</span></span><br><span class="line">sudo pacman -Syu archlinuxcn-keyring</span><br><span class="line"></span><br><span class="line"><span class="comment"># Upgrade kernel to latest linux-stable (which is 5.5 atm)</span></span><br><span class="line"><span class="comment"># linux55-nvidia-440xx is the driver for nvidia graphcis card (GTX 1070 here)</span></span><br><span class="line"><span class="comment"># headers and virtualbox-host-modules are optional</span></span><br><span class="line">sudo pacman -S linux55 linux55-headers linux55-nvidia-440xx linux55-virtualbox-host-modules</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove old kernels (which is 5.4 atm)</span></span><br><span class="line">sudo pacman -Rs linux54 linux54-nvidia-440xx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fuck default folder named in Chinese</span></span><br><span class="line">nano .config/user-dirs.dirs</span><br><span class="line"><span class="comment">## Edit the following lines:</span></span><br><span class="line"><span class="comment"># XDG_DESKTOP_DIR="$HOME/Desktop"</span></span><br><span class="line"><span class="comment"># XDG_DOWNLOAD_DIR="$HOME/Download"</span></span><br><span class="line"><span class="comment"># XDG_TEMPLATES_DIR="$HOME/Templates"</span></span><br><span class="line"><span class="comment"># XDG_PUBLICSHARE_DIR="$HOME/Public"</span></span><br><span class="line"><span class="comment"># XDG_DOCUMENTS_DIR="$HOME/Documents"</span></span><br><span class="line"><span class="comment"># XDG_MUSIC_DIR="$HOME/Music"</span></span><br><span class="line"><span class="comment"># XDG_PICTURES_DIR="$HOME/Pictures"</span></span><br><span class="line"><span class="comment"># XDG_VIDEOS_DIR="$HOME/Videos"</span></span><br><span class="line"><span class="comment">## Then manually delete folders at $HOME and create</span></span><br><span class="line"><span class="comment">## corresponding folders named in English</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># You should reboot now to apply folder name changes</span></span><br><span class="line">reboot</span><br><span class="line"></span><br><span class="line"><span class="comment"># Dividing Line</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"---------------------------------"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Apply themes</span></span><br><span class="line"><span class="comment">## Install Adapta theme from official</span></span><br><span class="line"><span class="comment">## repositories</span></span><br><span class="line">sudo pacman -S adapta-kde adapta-gtk-theme</span><br><span class="line"><span class="comment">## Then manually set themes in system</span></span><br><span class="line"><span class="comment">## settings. You can also downloads</span></span><br><span class="line"><span class="comment">## other themes directly in system</span></span><br><span class="line"><span class="comment">## settings</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Double click to open folders or files</span></span><br><span class="line"><span class="comment"># in Dolphin:</span></span><br><span class="line"><span class="comment">## 设置 - 工作空间行为 - 常规行为 - 点击行为 - 双击打开文件和文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># zsh &amp;&amp; oh-my-zsh &amp;&amp;</span></span><br><span class="line"><span class="comment">## As of Manjaro KDE 19.0.2, zsh is pre-installed,</span></span><br><span class="line"><span class="comment">## just install git and oh-my-zsh</span></span><br><span class="line">sudo pacman -S git</span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br><span class="line"><span class="comment">## If forgot to set default term</span></span><br><span class="line"><span class="comment">## DO NOT USE sudo HERE SINCE IT WILL CHANGE THE DEFAULT SHELL OF ROOT!!!</span></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br><span class="line"><span class="comment">## I prefer this config: https://github.com/caiogondim/bullet-train.zsh</span></span><br><span class="line"><span class="comment">## Place it in $ZSH_CUSTOM/themes, here $ZSH_CUSTOM == ~/.zsh</span></span><br><span class="line">mkdir -p ~/.zsh/themes</span><br><span class="line"><span class="comment">## Get bullet-train.zsh-theme in advance and locate to its position</span></span><br><span class="line">mv bullet-train.zsh-theme ~/.zsh/themes</span><br><span class="line"><span class="comment">## Edit ~/.zshrc</span></span><br><span class="line">nano ~/.zshrc</span><br><span class="line"><span class="comment">## Find ZSH_THEME and edit</span></span><br><span class="line"><span class="comment"># ZSH_THEME="bullet-train"</span></span><br><span class="line"><span class="comment">## Find ZSH_CUSTOM and remove comments</span></span><br><span class="line"><span class="comment"># ZSH_CUSTOM="$HOME/.zsh"</span></span><br><span class="line"><span class="comment">## Save the file.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use trizen to install AUR packages</span></span><br><span class="line">sudo pacman -S trizen</span><br><span class="line"><span class="comment"># Many would prefer yay but I am just used to trizen</span></span><br><span class="line"><span class="comment"># But there you go</span></span><br><span class="line">sudo pacman -S yay</span><br><span class="line"><span class="comment"># Optional: To build Lineage OS, install dependencies</span></span><br><span class="line">trizen -S lineageos-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optional: a lot of fonts incoming</span></span><br><span class="line"><span class="comment">## Get cascadia code from https://github.com/microsoft/cascadia-code/releases</span></span><br><span class="line"><span class="comment">## I prefer to download both versions, with or without powerline.</span></span><br><span class="line"><span class="comment">## And Sarasa Gothic from https://github.com/be5invis/Sarasa-Gothic/releases</span></span><br><span class="line"><span class="comment">## then install them manually</span></span><br><span class="line"><span class="comment">## Then noto-fonts and adobe-source-han</span></span><br><span class="line"><span class="comment">## (I know they are duplicated, but I'm fuckin' boring)</span></span><br><span class="line">sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra</span><br><span class="line">sudo pacman -S adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts</span><br><span class="line">sudo pacman -S adobe-source-code-pro-fonts</span><br><span class="line"><span class="comment">## Miscellaneous fonts</span></span><br><span class="line">sudo pacman -S wqy-microhei wqy-microhei-lite wqy-zenhei ttf-roboto ttf-dejavu ttf-wps-fonts</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fcitx &amp;&amp; fcitx-sogoupinyin</span></span><br><span class="line">sudo pacman -S fcitx-im kcm-fcitx fcitx-googlepinyin fcitx-skin-material</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add profiles ~/.xprofile and reboot</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export GTK_IM_MODULES=fcitx\n\</span></span><br><span class="line"><span class="string">export QT_IM_MODULES=fcitx\n\</span></span><br><span class="line"><span class="string">export XMODIFIERS=\"@im=fcitx\""</span> &gt;&gt; ~/.xprofile</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure git</span></span><br><span class="line">git config --global user.name <span class="string">""</span></span><br><span class="line">git config --global user.email <span class="string">""</span></span><br><span class="line"><span class="comment"># Generate ssh key</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"eterocell@outlook.com"</span></span><br><span class="line">sudo pacman -S xclip</span><br><span class="line">xclip =sel clip &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># Now ssh-key should have been copied to your paste board, set it in github</span></span><br><span class="line"><span class="comment"># Check connection</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment"># Generate a GPG key</span></span><br><span class="line">gpg --full-gen-key</span><br><span class="line"><span class="comment"># Choose "RSA and RSA" "keysize = 4096" "0 = key does not expire"</span></span><br><span class="line"><span class="comment"># List generated key</span></span><br><span class="line">gpg --list-secret-keys --keyid-format LONG</span><br><span class="line"><span class="comment"># `sec` stands for 'secret key', ssb stands for 'secret subkey'</span></span><br><span class="line"><span class="comment"># copy the public key and set in github</span></span><br><span class="line">gpg --armor --<span class="built_in">export</span> <span class="variable">$&#123;key ID which is after sec&#125;</span> | xclip --selection clipboard</span><br><span class="line"><span class="comment"># Then you can commit individual commits using</span></span><br><span class="line">git commit --gpg-sign=<span class="variable">$&#123;key ID which is after sec&#125;</span></span><br><span class="line"><span class="comment"># Or just set all commits sign with it</span></span><br><span class="line">git config --global user.signinkey <span class="variable">$&#123;key ID which is after sec&#125;</span></span><br><span class="line">git config --global commit.gpgsign <span class="literal">true</span></span><br><span class="line"><span class="comment"># I've encrypted my SSH and GPG keys and stored online, convenient though risky</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Optional: Other packages</span></span><br><span class="line">sudo pacman -S base-devel gcc gdb clang llvm vim google-chrome visual-studio-code-bin wps-office</span><br><span class="line">sudo pacman -S nodejs npm maven gradle foxit-reader unrar unzip p7zip netease-cloud-music telegram-desktop</span><br><span class="line">sudo pacman -S screenfetch neofetch</span><br><span class="line">trizen -S jetbrains-toolbox electron-ssr</span><br><span class="line"><span class="comment"># I recommend electron-ssr from https://github.com/shadowsocksrr/electron-ssr/releases</span></span><br><span class="line"><span class="comment"># Which is still mantained</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>[博弈][水题] HDU 6312 &quot;Game&quot;</title>
+    <url>/2020/02/08/%E5%8D%9A%E5%BC%88-%E6%B0%B4%E9%A2%98-HDU-6312-Game/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6312" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-6312" target="_blank" rel="noopener">Virtual Judge</a></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>Alice and Bob are playing a game.<br>The game is played on a set of positive integers from 1 to n.<br>In one step, the player can choose a positive integer from the set, and erase all of its divisors from the set. If a divisor doesn’t exist it will be ignored.<br>Alice and Bob choose in turn, the one who cannot choose (current set is empty) loses.<br>Alice goes first, she wanna know whether she can win. Please judge by outputing ‘Yes’ or ‘No’.</p>
+</blockquote>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
+<p>There might be multiple test cases, no more than 10. You need to read till the end of input.<br>For each test case, a line containing an integer n. (1≤n≤500)</p>
+</blockquote>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
+<p>A line for each test case, ‘Yes’ or ‘No’.</p>
+</blockquote>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><del>说实话这题是找出前几个的解后直接蒙的</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>OJ记录</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>HDU</tag>
+        <tag>水题</tag>
+        <tag>博弈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[栈][水题] HDU 1022 &quot;Train Problem I&quot;</title>
+    <url>/2020/02/16/%E6%A0%88-%E6%B0%B4%E9%A2%98-HDU-1022-Train-Problem-I/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1022" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-1022" target="_blank" rel="noopener">Virtual Judge</a></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>As the new term comes, the Ignatius Train Station is very busy nowadays. A lot of student want to get back to school by train(because the trains in the Ignatius Train Station is the fastest all over the world ^v^). But here comes a problem, there is only one railway where all the trains stop. So all the trains come in from one side and get out from the other side. For this problem, if train A gets into the railway first, and then train B gets into the railway before train A leaves, train A can’t leave until train B leaves. The pictures below figure out the problem. Now the problem for you is, there are at most 9 trains in the station, all the trains has an ID(numbered from 1 to n), the trains get into the railway in an order O1, your task is to determine whether the trains can get out in an order O2.</p>
+</blockquote>
+<img src="/2020/02/16/%E6%A0%88-%E6%B0%B4%E9%A2%98-HDU-1022-Train-Problem-I/HDU1022.png" class="" title="HDU1022">
+
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
+<p>The input contains several test cases. Each test case consists of an integer, the number of trains, and two strings, the order of the trains come in:O1, and the order of the trains leave:O2. The input is terminated by the end of file. More details in the Sample Input.</p>
+</blockquote>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
+<p>The output contains a string “No.” if you can’t exchange O2 to O1, or you should output a line contains “Yes.”, and then output your way in exchanging the order(you should output “in” for a train getting into the railway, and “out” for a train getting out of the railway). Print a line contains “FINISH” after each test case. More details in the Sample Output.</p>
+</blockquote>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3 123 321</span><br><span class="line">3 123 312</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes.</span><br><span class="line">in</span><br><span class="line">in</span><br><span class="line">in</span><br><span class="line">out</span><br><span class="line">out</span><br><span class="line">out</span><br><span class="line">FINISH</span><br><span class="line">No.</span><br><span class="line">FINISH</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从题目描述便可知这道题是典型的火车出入站的问题，直接用栈模拟便可解决。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stack_1;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="keyword">bool</span> flag[<span class="number">20</span>];              <span class="comment">// true =&gt; "in", false =&gt; "out"</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> o1, o2;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stack_1.empty()) &#123;</span><br><span class="line">            stack_1.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; o1 &gt;&gt; o2;</span><br><span class="line">        a = b = c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (b &lt; num + <span class="number">1</span> &amp;&amp; a &lt; num) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!stack_1.empty() &amp;&amp; stack_1.top() == o2[a]) &#123;</span><br><span class="line">                stack_1.pop();</span><br><span class="line">                flag[c++] = <span class="literal">false</span>;</span><br><span class="line">                a++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                flag[c++] = <span class="literal">true</span>;</span><br><span class="line">                stack_1.push(o1[b++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (c != num * <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"No."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">for</span> (a = <span class="number">0</span>; a &lt; num * <span class="number">2</span>; a++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (flag[a]) &#123;</span><br><span class="line">                    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"in"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"out"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"FINISH"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>OJ记录</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>HDU</tag>
+        <tag>水题</tag>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[数学][水题] HDU 2674 &quot;N! Again&quot;</title>
+    <url>/2020/02/08/%E6%95%B0%E5%AD%A6-%E6%B0%B4%E9%A2%98-HDU-2674-N-Again/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2674" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-2674" target="_blank" rel="noopener">Virtual Judge</a></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>WhereIsHeroFrom:             Zty, what are you doing ?<br>Zty:                                     I want to calculate N!……<br>WhereIsHeroFrom:             So easy! How big N is ?<br>Zty:                                    1 &lt;=N &lt;=1000000000000000000000000000000000000000000000…<br>WhereIsHeroFrom:             Oh! You must be crazy! Are you Fa Shao?<br>Zty:                                     No. I haven’s finished my saying. I just said I want to calculate N! mod 2009</p>
+<p>Hint : 0! = 1, N! = N*(N-1)!</p>
+</blockquote>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
+<p>Each line will contain one integer N(0 &lt;= N&lt;=10^9). Process to end of file.</p>
+</blockquote>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
+<p>For each case, output N! mod 2009</p>
+</blockquote>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">24</span><br><span class="line">120</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="原思路"><a href="#原思路" class="headerlink" title="原思路"></a>原思路</h2><p>已知 2009! 因为有因数 2009 =&gt; 2009! mod 2009 == 0。因而包括 2009! 及以后的阶乘模 2009 结果必为 0，则只需算 2009 之前的。</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> num;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (num &lt; <span class="number">2009</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">                sum *= i;</span><br><span class="line">                sum %= <span class="number">2009</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; sum &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="改进思路"><a href="#改进思路" class="headerlink" title="改进思路"></a>改进思路</h2><p>因为 2009 = 41 x 7 x 7，因而到 49 及以后的数的阶乘结果都将为 0.</p>
+<h3 id="改进后的-Code"><a href="#改进后的-Code" class="headerlink" title="改进后的 Code"></a>改进后的 Code</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> num;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (num &lt; <span class="number">49</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">                sum *= i;</span><br><span class="line">                sum %= <span class="number">2009</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; sum &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>OJ记录</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>HDU</tag>
+        <tag>水题</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编译Android Linux Kernel并生成Flashable Zip</title>
+    <url>/2020/04/06/%E7%BC%96%E8%AF%91Android-Linux-Kernel%E5%B9%B6%E7%94%9F%E6%88%90Flashable-Zip/</url>
+    <content><![CDATA[<p>适用于 Android 10, ARM 64</p>
+<a id="more"></a>
+
+<h2 id="Clone-所需的-Repository"><a href="#Clone-所需的-Repository" class="headerlink" title="Clone 所需的 Repository"></a>Clone 所需的 Repository</h2><h3 id="Clone-kernel-repo"><a href="#Clone-kernel-repo" class="headerlink" title="Clone kernel repo"></a>Clone kernel repo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ExampleUser/ExampleRepo.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="Clone-toolchains"><a href="#Clone-toolchains" class="headerlink" title="Clone toolchains"></a>Clone toolchains</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Clang_Google</span></span><br><span class="line">git <span class="built_in">clone</span> https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86</span><br><span class="line"><span class="comment"># GCC_Google_ARM32</span></span><br><span class="line">git <span class="built_in">clone</span> https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9</span><br><span class="line"><span class="comment"># GCC_Google_ARM64</span></span><br><span class="line">git <span class="built_in">clone</span> https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9</span><br></pre></td></tr></table></figure>
+
+<h3 id="Clone-AnyKernel3"><a href="#Clone-AnyKernel3" class="headerlink" title="Clone AnyKernel3"></a>Clone AnyKernel3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/osm0sis/AnyKernel3</span><br></pre></td></tr></table></figure>
+
+<h2 id="确认defconfig"><a href="#确认defconfig" class="headerlink" title="确认defconfig"></a>确认defconfig</h2><p>比如说 arm64 的内核的 defconfig 一般在 arch/arm64/configs</p>
+<h2 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;Your Kernel Path&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="清理编译环境"><a href="#清理编译环境" class="headerlink" title="清理编译环境"></a>清理编译环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make clean &amp;&amp; make mrproper</span><br></pre></td></tr></table></figure>
+
+<h2 id="准备编译环境"><a href="#准备编译环境" class="headerlink" title="准备编译环境"></a>准备编译环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p out</span><br><span class="line"><span class="built_in">export</span> ARCH=arm64</span><br><span class="line"><span class="built_in">export</span> CLANG_PATH=<span class="variable">$&#123;Your Clang_Google Path&#125;</span>/<span class="variable">$&#123;Prefered Clang Version&#125;</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;CLANG_PATH&#125;</span>:<span class="variable">$&#123;PATH&#125;</span></span><br><span class="line"><span class="built_in">export</span> CLANG_TRIPLE=aarch64-linux-gnu-</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=<span class="variable">$&#123;Your GCC_Google_ARM64 Path&#125;</span>/bin/aarch64-linux-android-</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE_ARM32=<span class="variable">$&#123;Your GCC_Google_ARM32 Path&#125;</span>/bin/arm-linux-androideabi-</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=~<span class="variable">$&#123;Your Clang_Google Path&#125;</span>/<span class="variable">$&#123;Prefered Clang Version&#125;</span>/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置-defconfig"><a href="#设置-defconfig" class="headerlink" title="设置 defconfig"></a>设置 defconfig</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make CC=clang AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy STRIP=llvm-strip O=out <span class="variable">$&#123;defconfig name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make CC=clang AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy STRIP=llvm-strip O=out -j<span class="variable">$&#123;$(nproc --all) / 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="用-AnyKernel-生成-Flashable-Zip"><a href="#用-AnyKernel-生成-Flashable-Zip" class="headerlink" title="用 AnyKernel 生成 Flashable Zip"></a>用 AnyKernel 生成 Flashable Zip</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp <span class="variable">$&#123;Your Kernel Path/out/arch/arm64/boot/Image.gz-dtb&#125;</span> <span class="variable">$&#123;Your AnyKernel3 Path&#125;</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;Your AnyKernel3 Path&#125;</span></span><br><span class="line">zip -r9 flashable.zip * -x .git README.md *placeholder</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是 AnyKernel 需要一定的改动才能生成 Flashable Zip，详见官方文档。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>[超水题] HDU 5948 &quot;Thickest Burger&quot;</title>
+    <url>/2020/02/08/%E8%B6%85%E6%B0%B4%E9%A2%98-HDU-5948-Thickest-Burger/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5948" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-5948" target="_blank" rel="noopener">Virtual Judge</a></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>ACM ICPC is launching a thick burger. The thickness (or the height) of a piece of club steak is A (1 ≤ A ≤ 100). The thickness (or the height) of a piece of chicken steak is B (1 ≤ B ≤ 100).<br>The chef allows to add just three pieces of meat into the burger and he does not allow to add three pieces of same type of meat. As a customer and a foodie, you want to know the maximum total thickness of a burger which you can get from the chef. Here we ignore the thickness of breads, vegetables and other seasonings.</p>
+</blockquote>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
+<p>The first line is the number of test cases. For each test case, a line contains two positive integers A and B.</p>
+</blockquote>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
+<p>For each test case, output a line containing the maximum total thickness of a burger.</p>
+</blockquote>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">68 42</span><br><span class="line">1 35</span><br><span class="line">25 70</span><br><span class="line">59 79</span><br><span class="line">65 63</span><br><span class="line">46 6</span><br><span class="line">28 82</span><br><span class="line">92 62</span><br><span class="line">43 96</span><br><span class="line">37 28</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">178</span><br><span class="line">71</span><br><span class="line">165</span><br><span class="line">217</span><br><span class="line">193</span><br><span class="line">98</span><br><span class="line">192</span><br><span class="line">246</span><br><span class="line">235</span><br><span class="line">102</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><blockquote>
+<p>Consider the ﬁrst test case, since 68+68+42 is bigger than 68+42+42 the answer should be 68+68+42 = 178.<br>Similarly since 1+35+35 is bigger than 1+1+35, the answer of the second test case should be 1+35+35 = 71.</p>
+</blockquote>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>超级大水题，没什么好说的。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> times;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; times;</span><br><span class="line">    <span class="keyword">while</span> (times--) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a * <span class="number">2</span> + b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; b * <span class="number">2</span> + a &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>OJ记录</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>HDU</tag>
+        <tag>水题</tag>
+      </tags>
+  </entry>
+</search>
