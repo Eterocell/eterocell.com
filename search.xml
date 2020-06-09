@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>今天你蓝屏了吗？</title>
+    <url>/2020/04/13/%E4%BB%8A%E5%A4%A9%E4%BD%A0%E8%93%9D%E5%B1%8F%E4%BA%86%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<p><code>#Bug10</code></p>
+<a id="more"></a>
+
+<p>2020.4.13</p>
+<ul>
+<li>WebStorm 安装 node 插件时 <code>IRQL_NOT_LESS_OR_EQUAL</code>.</li>
+</ul>
+<p>2020.6.9</p>
+<ul>
+<li>IDEA 正常运行时 <code>IRQL_NOT_LESS_OR_EQUAL</code>.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>吐槽</category>
+      </categories>
+      <tags>
+        <tag>BSOD</tag>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Yoga C940 使用3个月后感想</title>
     <url>/2020/03/05/C940-3%E4%B8%AA%E6%9C%88%E4%BD%BF%E7%94%A8%E5%90%8E%E6%84%9F%E6%83%B3/</url>
     <content><![CDATA[<p>一直都想有一台带触控屏的 Windows 二合一笔记本，本来是非常心水 Surface Pro 的，但是看到 C940 的配置和价格之后我只想说——真香。</p>
@@ -77,26 +100,53 @@
 ]]></content>
   </entry>
   <entry>
-    <title>今天你蓝屏了吗？</title>
-    <url>/2020/04/13/%E4%BB%8A%E5%A4%A9%E4%BD%A0%E8%93%9D%E5%B1%8F%E4%BA%86%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<p><code>#Bug10</code></p>
+    <title>使用 VSCode 和 MinGW 实现 Windows C/C++ 开发</title>
+    <url>/2020/02/10/%E4%BD%BF%E7%94%A8-VSCode-%E5%92%8C-MinGW-%E5%AE%9E%E7%8E%B0-Windows-C-C-%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p><a href="https://nuwen.net/mingw.html" target="_blank" rel="noopener">MinGW Distro</a><br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a><br><a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">官方文档</a></p>
 <a id="more"></a>
 
-<p>2020.4.13</p>
+<hr>
 <ul>
-<li>WebStorm 安装 node 插件时 <code>IRQL_NOT_LESS_OR_EQUAL</code>.</li>
+<li><p>下载并安装 VSCode</p>
+</li>
+<li><p>在 VSCode 中安装 C/C++ 插件</p>
+</li>
+<li><p>下载并安装 MinGW Distro，将其解压至 C:\Program Files\MinGW</p>
+</li>
+<li><p>打开 cmd 输入以下命令添加环境变量</p>
+</li>
 </ul>
-<p>2020.6.9</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">setx /M <span class="built_in">path</span> "<span class="variable">%PATH%</span>;C:\Program Files\MinGW\bin\"</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>IDEA 正常运行时 <code>IRQL_NOT_LESS_OR_EQUAL</code>.</li>
+<li>重启 cmd 输入以下命令以检查环境变量是否正确添加</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">g++ --version</span><br><span class="line">gdb --version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正确添加环境变量后，打开 VSCode，选择存放 C/C++ 代码的文件夹，新建 HelloWorld 文件夹并在其中新建 HelloWorld.cpp 文件并保存</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在终端中输入以下命令创建工作区</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>点击终端-运行生成任务，选择 C/C++:g++.exe build active file，你会发现 VSCode 在工作区目录中创建了 .vscode 文件夹以及其中的 tasks.json (最好使用 cmd 生成来避免问题)</p>
+</li>
+<li><p>点击调试-启动调试，选择 C++ (GDB/LLDB)，选择 g++.exe build and debug active file，你会发现 VSCode 在 .vscode 文件夹中创建了 launch.json</p>
+</li>
+<li><p>可以生成和调试之后，如果想更多修改 C/C++ 插件的设置，可以按 Ctrl+Shift+P 搜索 C/C++: 编辑配置，这将在 .vscode 文件夹中创建 c_cpp_properties.json 文件继而修改配置，修改 C/C++ 标准便是在这一步进行。</p>
+</li>
 </ul>
 ]]></content>
       <categories>
-        <category>吐槽</category>
+        <category>WorkTips</category>
       </categories>
       <tags>
-        <tag>BSOD</tag>
-        <tag>记录</tag>
+        <tag>开发环境</tag>
       </tags>
   </entry>
   <entry>
@@ -169,56 +219,6 @@
         <tag>HDU</tag>
         <tag>水题</tag>
         <tag>博弈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 VSCode 和 MinGW 实现 Windows C/C++ 开发</title>
-    <url>/2020/02/10/%E4%BD%BF%E7%94%A8-VSCode-%E5%92%8C-MinGW-%E5%AE%9E%E7%8E%B0-Windows-C-C-%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<p><a href="https://nuwen.net/mingw.html" target="_blank" rel="noopener">MinGW Distro</a><br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a><br><a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">官方文档</a></p>
-<a id="more"></a>
-
-<hr>
-<ul>
-<li><p>下载并安装 VSCode</p>
-</li>
-<li><p>在 VSCode 中安装 C/C++ 插件</p>
-</li>
-<li><p>下载并安装 MinGW Distro，将其解压至 C:\Program Files\MinGW</p>
-</li>
-<li><p>打开 cmd 输入以下命令添加环境变量</p>
-</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">setx /M <span class="built_in">path</span> "<span class="variable">%PATH%</span>;C:\Program Files\MinGW\bin\"</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重启 cmd 输入以下命令以检查环境变量是否正确添加</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">g++ --version</span><br><span class="line">gdb --version</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>正确添加环境变量后，打开 VSCode，选择存放 C/C++ 代码的文件夹，新建 HelloWorld 文件夹并在其中新建 HelloWorld.cpp 文件并保存</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在终端中输入以下命令创建工作区</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>点击终端-运行生成任务，选择 C/C++:g++.exe build active file，你会发现 VSCode 在工作区目录中创建了 .vscode 文件夹以及其中的 tasks.json (最好使用 cmd 生成来避免问题)</p>
-</li>
-<li><p>点击调试-启动调试，选择 C++ (GDB/LLDB)，选择 g++.exe build and debug active file，你会发现 VSCode 在 .vscode 文件夹中创建了 launch.json</p>
-</li>
-<li><p>可以生成和调试之后，如果想更多修改 C/C++ 插件的设置，可以按 Ctrl+Shift+P 搜索 C/C++: 编辑配置，这将在 .vscode 文件夹中创建 c_cpp_properties.json 文件继而修改配置，修改 C/C++ 标准便是在这一步进行。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>WorkTips</category>
-      </categories>
-      <tags>
-        <tag>开发环境</tag>
       </tags>
   </entry>
   <entry>
