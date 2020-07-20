@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>使用 VSCode 和 MinGW 实现 Windows C/C++ 开发</title>
+    <url>/2020/02/10/%E4%BD%BF%E7%94%A8-VSCode-%E5%92%8C-MinGW-%E5%AE%9E%E7%8E%B0-Windows-C-C-%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p><a href="https://nuwen.net/mingw.html" target="_blank" rel="noopener">MinGW Distro</a><br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a><br><a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">官方文档</a></p>
+<a id="more"></a>
+
+<hr>
+<ul>
+<li><p>下载并安装 VSCode</p>
+</li>
+<li><p>在 VSCode 中安装 C/C++ 插件</p>
+</li>
+<li><p>下载并安装 MinGW Distro，将其解压至 C:\Program Files\MinGW</p>
+</li>
+<li><p>打开 cmd 输入以下命令添加环境变量</p>
+</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">setx /M <span class="built_in">path</span> "<span class="variable">%PATH%</span>;C:\Program Files\MinGW\bin\"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启 cmd 输入以下命令以检查环境变量是否正确添加</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">g++ --version</span><br><span class="line">gdb --version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正确添加环境变量后，打开 VSCode，选择存放 C/C++ 代码的文件夹，新建 HelloWorld 文件夹并在其中新建 HelloWorld.cpp 文件并保存</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在终端中输入以下命令创建工作区</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>点击终端-运行生成任务，选择 C/C++:g++.exe build active file，你会发现 VSCode 在工作区目录中创建了 .vscode 文件夹以及其中的 tasks.json</p>
+</li>
+<li><p>点击调试-启动调试，选择 C++ (GDB/LLDB)，选择 g++.exe build and debug active file，你会发现 VSCode 在 .vscode 文件夹中创建了 launch.json</p>
+</li>
+<li><p>可以生成和调试之后，如果想更多修改 C/C++ 插件的设置，可以按 Ctrl+Shift+P 搜索 C/C++: 编辑配置，这将在 .vscode 文件夹中创建 c_cpp_properties.json 文件继而修改配置，修改 C/C++ 标准便是在这一步进行。</p>
+</li>
+</ul>
+<hr>
+<p>2020.7.20更新：使用<code>clangd</code>扩展获得更好的 <strong>静态代码检查</strong> 和 <strong>代码补全</strong> 体验，同时与 MS 官方提供的 <code>C/C++</code> 插件共存，获得最佳的 <strong>调试</strong> 与 <strong>直接运行</strong> 体验</p>
+<ul>
+<li>安装 <code>llvm</code> 工具链，包括 <code>clang</code>, <code>clangd</code>, <code>clang-tidy</code> 等工具</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Windows with Scoop package manager</span></span><br><span class="line">scoop install llvm</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在 VSCode 中安装 <code>clangd</code> 插件</p>
+</li>
+<li><p>在 VSCode 的 <code>settings.json</code> 中调整以下设置</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 关闭 C/C++ 插件提供的静态代码检查与补全功能， clang-tidy 提供的体验更好</span></span><br><span class="line">"C_Cpp.intelliSenseEngine": "Disabled",</span><br><span class="line">"C_Cpp.autocomplete": "Disabled",</span><br><span class="line">"C_Cpp.errorSquiggles": "Disabled",</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Enjoy</li>
+</ul>
+]]></content>
+      <categories>
+        <category>WorkTips</category>
+      </categories>
+      <tags>
+        <tag>开发环境</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Yoga C940 使用3个月后感想</title>
     <url>/2020/03/05/C940-3%E4%B8%AA%E6%9C%88%E4%BD%BF%E7%94%A8%E5%90%8E%E6%84%9F%E6%83%B3/</url>
     <content><![CDATA[<p>一直都想有一台带触控屏的 Windows 二合一笔记本，本来是非常心水 Surface Pro 的，但是看到 C940 的配置和价格之后我只想说——真香。</p>
@@ -77,78 +145,67 @@
 ]]></content>
   </entry>
   <entry>
-    <title>使用 VSCode 和 MinGW 实现 Windows C/C++ 开发</title>
-    <url>/2020/02/10/%E4%BD%BF%E7%94%A8-VSCode-%E5%92%8C-MinGW-%E5%AE%9E%E7%8E%B0-Windows-C-C-%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<p><a href="https://nuwen.net/mingw.html" target="_blank" rel="noopener">MinGW Distro</a><br><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a><br><a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">官方文档</a></p>
-<a id="more"></a>
-
-<hr>
-<ul>
-<li><p>下载并安装 VSCode</p>
-</li>
-<li><p>在 VSCode 中安装 C/C++ 插件</p>
-</li>
-<li><p>下载并安装 MinGW Distro，将其解压至 C:\Program Files\MinGW</p>
-</li>
-<li><p>打开 cmd 输入以下命令添加环境变量</p>
-</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">setx /M <span class="built_in">path</span> "<span class="variable">%PATH%</span>;C:\Program Files\MinGW\bin\"</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重启 cmd 输入以下命令以检查环境变量是否正确添加</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">g++ --version</span><br><span class="line">gdb --version</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>正确添加环境变量后，打开 VSCode，选择存放 C/C++ 代码的文件夹，新建 HelloWorld 文件夹并在其中新建 HelloWorld.cpp 文件并保存</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在终端中输入以下命令创建工作区</li>
-</ul>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>点击终端-运行生成任务，选择 C/C++:g++.exe build active file，你会发现 VSCode 在工作区目录中创建了 .vscode 文件夹以及其中的 tasks.json (最好使用 cmd 生成来避免问题)</p>
-</li>
-<li><p>点击调试-启动调试，选择 C++ (GDB/LLDB)，选择 g++.exe build and debug active file，你会发现 VSCode 在 .vscode 文件夹中创建了 launch.json</p>
-</li>
-<li><p>可以生成和调试之后，如果想更多修改 C/C++ 插件的设置，可以按 Ctrl+Shift+P 搜索 C/C++: 编辑配置，这将在 .vscode 文件夹中创建 c_cpp_properties.json 文件继而修改配置，修改 C/C++ 标准便是在这一步进行。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>WorkTips</category>
-      </categories>
-      <tags>
-        <tag>开发环境</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[博弈][水题] HDU 6312 &quot;Game&quot;</title>
-    <url>/2020/02/08/%E5%8D%9A%E5%BC%88-%E6%B0%B4%E9%A2%98-HDU-6312-Game/</url>
-    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6312" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-6312" target="_blank" rel="noopener">Virtual Judge</a></p>
+    <title>[栈][水题] HDU 1022 &quot;Train Problem I&quot;</title>
+    <url>/2020/02/16/%E6%A0%88-%E6%B0%B4%E9%A2%98-HDU-1022-Train-Problem-I/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1022" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-1022" target="_blank" rel="noopener">Virtual Judge</a></p>
 <a id="more"></a>
 
 <hr>
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>Alice and Bob are playing a game.<br>The game is played on a set of positive integers from 1 to n.<br>In one step, the player can choose a positive integer from the set, and erase all of its divisors from the set. If a divisor doesn’t exist it will be ignored.<br>Alice and Bob choose in turn, the one who cannot choose (current set is empty) loses.<br>Alice goes first, she wanna know whether she can win. Please judge by outputing ‘Yes’ or ‘No’.</p>
+<p>As the new term comes, the Ignatius Train Station is very busy nowadays. A lot of student want to get back to school by train(because the trains in the Ignatius Train Station is the fastest all over the world ^v^). But here comes a problem, there is only one railway where all the trains stop. So all the trains come in from one side and get out from the other side. For this problem, if train A gets into the railway first, and then train B gets into the railway before train A leaves, train A can’t leave until train B leaves. The pictures below figure out the problem. Now the problem for you is, there are at most 9 trains in the station, all the trains has an ID(numbered from 1 to n), the trains get into the railway in an order O1, your task is to determine whether the trains can get out in an order O2.</p>
 </blockquote>
+<img src="/2020/02/16/%E6%A0%88-%E6%B0%B4%E9%A2%98-HDU-1022-Train-Problem-I/HDU1022.png" class="" title="HDU1022">
+
 <h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
-<p>There might be multiple test cases, no more than 10. You need to read till the end of input.<br>For each test case, a line containing an integer n. (1≤n≤500)</p>
+<p>The input contains several test cases. Each test case consists of an integer, the number of trains, and two strings, the order of the trains come in:O1, and the order of the trains leave:O2. The input is terminated by the end of file. More details in the Sample Input.</p>
 </blockquote>
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
-<p>A line for each test case, ‘Yes’ or ‘No’.</p>
+<p>The output contains a string “No.” if you can’t exchange O2 to O1, or you should output a line contains “Yes.”, and then output your way in exchanging the order(you should output “in” for a train getting into the railway, and “out” for a train getting out of the railway). Print a line contains “FINISH” after each test case. More details in the Sample Output.</p>
 </blockquote>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3 123 321</span><br><span class="line">3 123 312</span><br></pre></td></tr></table></figure>
 
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes.</span><br><span class="line">in</span><br><span class="line">in</span><br><span class="line">in</span><br><span class="line">out</span><br><span class="line">out</span><br><span class="line">out</span><br><span class="line">FINISH</span><br><span class="line">No.</span><br><span class="line">FINISH</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><del>说实话这题是找出前几个的解后直接蒙的</del></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从题目描述便可知这道题是典型的火车出入站的问题，直接用栈模拟便可解决。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stack_1;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="keyword">bool</span> flag[<span class="number">20</span>];              <span class="comment">// true =&gt; "in", false =&gt; "out"</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> o1, o2;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stack_1.empty()) &#123;</span><br><span class="line">            stack_1.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; o1 &gt;&gt; o2;</span><br><span class="line">        a = b = c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (b &lt; num + <span class="number">1</span> &amp;&amp; a &lt; num) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!stack_1.empty() &amp;&amp; stack_1.top() == o2[a]) &#123;</span><br><span class="line">                stack_1.pop();</span><br><span class="line">                flag[c++] = <span class="literal">false</span>;</span><br><span class="line">                a++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                flag[c++] = <span class="literal">true</span>;</span><br><span class="line">                stack_1.push(o1[b++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (c != num * <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"No."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">for</span> (a = <span class="number">0</span>; a &lt; num * <span class="number">2</span>; a++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (flag[a]) &#123;</span><br><span class="line">                    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"in"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"out"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"FINISH"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>OJ记录</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>HDU</tag>
+        <tag>栈</tag>
+        <tag>水题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[超水题] HDU 5948 &quot;Thickest Burger&quot;</title>
+    <url>/2020/02/08/%E8%B6%85%E6%B0%B4%E9%A2%98-HDU-5948-Thickest-Burger/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5948" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-5948" target="_blank" rel="noopener">Virtual Judge</a></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>ACM ICPC is launching a thick burger. The thickness (or the height) of a piece of club steak is A (1 ≤ A ≤ 100). The thickness (or the height) of a piece of chicken steak is B (1 ≤ B ≤ 100).<br>The chef allows to add just three pieces of meat into the burger and he does not allow to add three pieces of same type of meat. As a customer and a foodie, you want to know the maximum total thickness of a burger which you can get from the chef. Here we ignore the thickness of breads, vegetables and other seasonings.</p>
+</blockquote>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
+<p>The first line is the number of test cases. For each test case, a line contains two positive integers A and B.</p>
+</blockquote>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
+<p>For each test case, output a line containing the maximum total thickness of a burger.</p>
+</blockquote>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">68 42</span><br><span class="line">1 35</span><br><span class="line">25 70</span><br><span class="line">59 79</span><br><span class="line">65 63</span><br><span class="line">46 6</span><br><span class="line">28 82</span><br><span class="line">92 62</span><br><span class="line">43 96</span><br><span class="line">37 28</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">178</span><br><span class="line">71</span><br><span class="line">165</span><br><span class="line">217</span><br><span class="line">193</span><br><span class="line">98</span><br><span class="line">192</span><br><span class="line">246</span><br><span class="line">235</span><br><span class="line">102</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><blockquote>
+<p>Consider the ﬁrst test case, since 68+68+42 is bigger than 68+42+42 the answer should be 68+68+42 = 178.<br>Similarly since 1+35+35 is bigger than 1+1+35, the answer of the second test case should be 1+35+35 = 71.</p>
+</blockquote>
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>超级大水题，没什么好说的。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> times;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; times;</span><br><span class="line">    <span class="keyword">while</span> (times--) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a * <span class="number">2</span> + b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; b * <span class="number">2</span> + a &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>OJ记录</category>
@@ -157,7 +214,6 @@
         <tag>OJ</tag>
         <tag>HDU</tag>
         <tag>水题</tag>
-        <tag>博弈</tag>
       </tags>
   </entry>
   <entry>
@@ -199,6 +255,40 @@
       </tags>
   </entry>
   <entry>
+    <title>[博弈][水题] HDU 6312 &quot;Game&quot;</title>
+    <url>/2020/02/08/%E5%8D%9A%E5%BC%88-%E6%B0%B4%E9%A2%98-HDU-6312-Game/</url>
+    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6312" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-6312" target="_blank" rel="noopener">Virtual Judge</a></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>Alice and Bob are playing a game.<br>The game is played on a set of positive integers from 1 to n.<br>In one step, the player can choose a positive integer from the set, and erase all of its divisors from the set. If a divisor doesn’t exist it will be ignored.<br>Alice and Bob choose in turn, the one who cannot choose (current set is empty) loses.<br>Alice goes first, she wanna know whether she can win. Please judge by outputing ‘Yes’ or ‘No’.</p>
+</blockquote>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
+<p>There might be multiple test cases, no more than 10. You need to read till the end of input.<br>For each test case, a line containing an integer n. (1≤n≤500)</p>
+</blockquote>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
+<p>A line for each test case, ‘Yes’ or ‘No’.</p>
+</blockquote>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><del>说实话这题是找出前几个的解后直接蒙的</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>OJ记录</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>HDU</tag>
+        <tag>水题</tag>
+        <tag>博弈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>编译Android Linux Kernel并生成Flashable Zip</title>
     <url>/2020/04/06/%E7%BC%96%E8%AF%91Android-Linux-Kernel%E5%B9%B6%E7%94%9F%E6%88%90Flashable-Zip/</url>
     <content><![CDATA[<p>适用于 Android 10, ARM 64</p>
@@ -225,77 +315,5 @@
 
 <p>需要注意的是 AnyKernel 需要一定的改动才能生成 Flashable Zip，详见官方文档。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>[栈][水题] HDU 1022 &quot;Train Problem I&quot;</title>
-    <url>/2020/02/16/%E6%A0%88-%E6%B0%B4%E9%A2%98-HDU-1022-Train-Problem-I/</url>
-    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1022" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-1022" target="_blank" rel="noopener">Virtual Judge</a></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>As the new term comes, the Ignatius Train Station is very busy nowadays. A lot of student want to get back to school by train(because the trains in the Ignatius Train Station is the fastest all over the world ^v^). But here comes a problem, there is only one railway where all the trains stop. So all the trains come in from one side and get out from the other side. For this problem, if train A gets into the railway first, and then train B gets into the railway before train A leaves, train A can’t leave until train B leaves. The pictures below figure out the problem. Now the problem for you is, there are at most 9 trains in the station, all the trains has an ID(numbered from 1 to n), the trains get into the railway in an order O1, your task is to determine whether the trains can get out in an order O2.</p>
-</blockquote>
-<img src="/2020/02/16/%E6%A0%88-%E6%B0%B4%E9%A2%98-HDU-1022-Train-Problem-I/HDU1022.png" class="" title="HDU1022">
-
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
-<p>The input contains several test cases. Each test case consists of an integer, the number of trains, and two strings, the order of the trains come in:O1, and the order of the trains leave:O2. The input is terminated by the end of file. More details in the Sample Input.</p>
-</blockquote>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
-<p>The output contains a string “No.” if you can’t exchange O2 to O1, or you should output a line contains “Yes.”, and then output your way in exchanging the order(you should output “in” for a train getting into the railway, and “out” for a train getting out of the railway). Print a line contains “FINISH” after each test case. More details in the Sample Output.</p>
-</blockquote>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3 123 321</span><br><span class="line">3 123 312</span><br></pre></td></tr></table></figure>
-
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes.</span><br><span class="line">in</span><br><span class="line">in</span><br><span class="line">in</span><br><span class="line">out</span><br><span class="line">out</span><br><span class="line">out</span><br><span class="line">FINISH</span><br><span class="line">No.</span><br><span class="line">FINISH</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从题目描述便可知这道题是典型的火车出入站的问题，直接用栈模拟便可解决。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stack_1;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="keyword">bool</span> flag[<span class="number">20</span>];              <span class="comment">// true =&gt; "in", false =&gt; "out"</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> o1, o2;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; num) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stack_1.empty()) &#123;</span><br><span class="line">            stack_1.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; o1 &gt;&gt; o2;</span><br><span class="line">        a = b = c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (b &lt; num + <span class="number">1</span> &amp;&amp; a &lt; num) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!stack_1.empty() &amp;&amp; stack_1.top() == o2[a]) &#123;</span><br><span class="line">                stack_1.pop();</span><br><span class="line">                flag[c++] = <span class="literal">false</span>;</span><br><span class="line">                a++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                flag[c++] = <span class="literal">true</span>;</span><br><span class="line">                stack_1.push(o1[b++]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (c != num * <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"No."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes."</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">for</span> (a = <span class="number">0</span>; a &lt; num * <span class="number">2</span>; a++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (flag[a]) &#123;</span><br><span class="line">                    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"in"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"out"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"FINISH"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>OJ记录</category>
-      </categories>
-      <tags>
-        <tag>OJ</tag>
-        <tag>HDU</tag>
-        <tag>水题</tag>
-        <tag>栈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[超水题] HDU 5948 &quot;Thickest Burger&quot;</title>
-    <url>/2020/02/08/%E8%B6%85%E6%B0%B4%E9%A2%98-HDU-5948-Thickest-Burger/</url>
-    <content><![CDATA[<h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5948" target="_blank" rel="noopener">HDU</a>, <a href="https://vjudge.net/problem/HDU-5948" target="_blank" rel="noopener">Virtual Judge</a></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
-<p>ACM ICPC is launching a thick burger. The thickness (or the height) of a piece of club steak is A (1 ≤ A ≤ 100). The thickness (or the height) of a piece of chicken steak is B (1 ≤ B ≤ 100).<br>The chef allows to add just three pieces of meat into the burger and he does not allow to add three pieces of same type of meat. As a customer and a foodie, you want to know the maximum total thickness of a burger which you can get from the chef. Here we ignore the thickness of breads, vegetables and other seasonings.</p>
-</blockquote>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><blockquote>
-<p>The first line is the number of test cases. For each test case, a line contains two positive integers A and B.</p>
-</blockquote>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><blockquote>
-<p>For each test case, output a line containing the maximum total thickness of a burger.</p>
-</blockquote>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">68 42</span><br><span class="line">1 35</span><br><span class="line">25 70</span><br><span class="line">59 79</span><br><span class="line">65 63</span><br><span class="line">46 6</span><br><span class="line">28 82</span><br><span class="line">92 62</span><br><span class="line">43 96</span><br><span class="line">37 28</span><br></pre></td></tr></table></figure>
-
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">178</span><br><span class="line">71</span><br><span class="line">165</span><br><span class="line">217</span><br><span class="line">193</span><br><span class="line">98</span><br><span class="line">192</span><br><span class="line">246</span><br><span class="line">235</span><br><span class="line">102</span><br></pre></td></tr></table></figure>
-
-<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><blockquote>
-<p>Consider the ﬁrst test case, since 68+68+42 is bigger than 68+42+42 the answer should be 68+68+42 = 178.<br>Similarly since 1+35+35 is bigger than 1+1+35, the answer of the second test case should be 1+35+35 = 71.</p>
-</blockquote>
-<hr>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>超级大水题，没什么好说的。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> times;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; times;</span><br><span class="line">    <span class="keyword">while</span> (times--) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a * <span class="number">2</span> + b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; b * <span class="number">2</span> + a &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>OJ记录</category>
-      </categories>
-      <tags>
-        <tag>OJ</tag>
-        <tag>HDU</tag>
-        <tag>水题</tag>
-      </tags>
   </entry>
 </search>
