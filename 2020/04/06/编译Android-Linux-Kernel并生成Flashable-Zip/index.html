@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.1.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -30,9 +30,7 @@
 <meta property="article:published_time" content="2020-04-06T08:27:57.000Z">
 <meta property="article:modified_time" content="2020-07-21T04:30:39.629Z">
 <meta property="article:author" content="Eterocell">
-<meta property="article:tag" content="Eterocell">
-<meta property="article:tag" content="Blog">
-<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Eterocell,Blog,Coding">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://eterocell.com/2020/04/06/%E7%BC%96%E8%AF%91Android-Linux-Kernel%E5%B9%B6%E7%94%9F%E6%88%90Flashable-Zip/">
@@ -365,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clone-所需的-Repository"><span class="nav-number">1.</span> <span class="nav-text">Clone 所需的 Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-kernel-repo"><span class="nav-number">1.1.</span> <span class="nav-text">Clone kernel repo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-toolchains"><span class="nav-number">1.2.</span> <span class="nav-text">Clone toolchains</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-AnyKernel3"><span class="nav-number">1.3.</span> <span class="nav-text">Clone AnyKernel3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认-defconfig"><span class="nav-number">2.</span> <span class="nav-text">确认 defconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译内核"><span class="nav-number">3.</span> <span class="nav-text">编译内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清理编译环境"><span class="nav-number">4.</span> <span class="nav-text">清理编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备编译环境"><span class="nav-number">5.</span> <span class="nav-text">准备编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-defconfig"><span class="nav-number">6.</span> <span class="nav-text">设置 defconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始编译"><span class="nav-number">7.</span> <span class="nav-text">开始编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-AnyKernel-生成-Flashable-Zip"><span class="nav-number">8.</span> <span class="nav-text">用 AnyKernel 生成 Flashable Zip</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clone-%E6%89%80%E9%9C%80%E7%9A%84-Repository"><span class="nav-number">1.</span> <span class="nav-text">Clone 所需的 Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-kernel-repo"><span class="nav-number">1.1.</span> <span class="nav-text">Clone kernel repo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-toolchains"><span class="nav-number">1.2.</span> <span class="nav-text">Clone toolchains</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-AnyKernel3"><span class="nav-number">1.3.</span> <span class="nav-text">Clone AnyKernel3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4-defconfig"><span class="nav-number">2.</span> <span class="nav-text">确认 defconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8"><span class="nav-number">3.</span> <span class="nav-text">编译内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="nav-number">4.</span> <span class="nav-text">清理编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="nav-number">5.</span> <span class="nav-text">准备编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-defconfig"><span class="nav-number">6.</span> <span class="nav-text">设置 defconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E8%AF%91"><span class="nav-number">7.</span> <span class="nav-text">开始编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-AnyKernel-%E7%94%9F%E6%88%90-Flashable-Zip"><span class="nav-number">8.</span> <span class="nav-text">用 AnyKernel 生成 Flashable Zip</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
