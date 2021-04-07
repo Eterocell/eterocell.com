@@ -74,7 +74,8 @@ Weight: 1.35kg</p>
   <entry>
     <title>MIT 6.NULL: Lecture 2 - Shell and Shell Scripting</title>
     <url>/posts/d74153f0/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p><a href="https://missing-semester-cn.github.io/">The Missing Semester of Your CS Education</a></p>
+<span id="more"></span>
 <h2 id="operator"><a class="markdownIt-Anchor" href="#operator"></a> Operator <code>!!</code></h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Cannot run without sudo</span></span><br><span class="line">pacman -Syu</span><br><span class="line"><span class="comment"># Do this</span></span><br><span class="line">sudo !!</span><br><span class="line"><span class="comment"># Turns to</span></span><br><span class="line">sudo pacman -Syu</span><br></pre></td></tr></table></figure>
 <h2 id="pattern"><a class="markdownIt-Anchor" href="#pattern"></a> Pattern</h2>
@@ -135,7 +136,8 @@ Weight: 1.35kg</p>
   <entry>
     <title>MIT 6.NULL: Lecture 4 - Data Wrangling</title>
     <url>/posts/b3b70e2f/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p><a href="https://missing-semester-cn.github.io/">The Missing Semester of Your CS Education</a></p>
+<span id="more"></span>
 <h2 id="regex"><a class="markdownIt-Anchor" href="#regex"></a> Regex</h2>
 <p><code>.</code>means one single character</p>
 <p><code>*</code>means 0 or more</p>
@@ -171,7 +173,8 @@ Weight: 1.35kg</p>
   <entry>
     <title>MIT 6.NULL: Lecture 3 - Text Editor (Vim)</title>
     <url>/posts/7c66ec/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p><a href="https://missing-semester-cn.github.io/">The Missing Semester of Your CS Education</a></p>
+<span id="more"></span>
 <h2 id="modes"><a class="markdownIt-Anchor" href="#modes"></a> Modes</h2>
 <ul>
 <li><strong>normal mode</strong>: <code>esc</code> from other modes</li>
@@ -274,7 +277,8 @@ Weight: 1.35kg</p>
   <entry>
     <title>MIT 6.NULL: Lecture 5 - CLI Environment</title>
     <url>/posts/ac921c89/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p><a href="https://missing-semester-cn.github.io/">The Missing Semester of Your CS Education</a></p>
+<span id="more"></span>
 <h2 id="job-control"><a class="markdownIt-Anchor" href="#job-control"></a> Job Control</h2>
 <h3 id="signal"><a class="markdownIt-Anchor" href="#signal"></a> <code>signal</code></h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># The process will sleep 20 seconds, ctrl+c will terminate</span></span><br><span class="line">sleep 20</span><br></pre></td></tr></table></figure>
@@ -311,7 +315,8 @@ Weight: 1.35kg</p>
   <entry>
     <title>MIT 6.NULL: Lecture 6 - Version Control (Git)</title>
     <url>/posts/84358c54/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p><a href="https://missing-semester-cn.github.io/">The Missing Semester of Your CS Education</a></p>
+<span id="more"></span>
 <p>A Git repository’s data structure are basically objects and references.</p>
 <p>A commit is immutable since its hash code will be altered if something is changed. Commit’s hash code is linked to its human readable name with basically a key-value map.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># initial an empty Git repository</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># current status of the repository</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># add changed files to the staging area</span></span><br><span class="line">git add</span><br><span class="line"></span><br><span class="line"><span class="comment"># commit changes in the staging area</span></span><br><span class="line">git commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># use the hash to see details of a commit, the tree, or the blob(file)</span></span><br><span class="line">git cat-file -p &#123;commit <span class="built_in">hash</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># repository commits log</span></span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># with some helpful colorized graphs</span></span><br><span class="line">git <span class="built_in">log</span> --all --graph --decorate</span><br><span class="line"></span><br><span class="line"><span class="comment"># compact one line log</span></span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br><span class="line"></span><br><span class="line"><span class="comment"># checkout commit hash/branch</span></span><br><span class="line">git checkout &#123;commit <span class="built_in">hash</span>/branch name&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># checkout a certain file will drop uncommited changes of it</span></span><br><span class="line">git checkout &#123;filename&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># show current diff</span></span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line"><span class="comment"># show current and a certain hash diff about a file</span></span><br><span class="line">git diff &#123;commit <span class="built_in">hash</span>/branch name before&#125; &#123;filename&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># show diffs between two status</span></span><br><span class="line">git diff &#123;before&#125; &#123;after&#125; &#123;filename&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># show local branches, -vv for extra information</span></span><br><span class="line">git branch -vv</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a new branch</span></span><br><span class="line">git branch &#123;branch name&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># merge changes to current branch</span></span><br><span class="line">git merge &#123;branch to be merged into current&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># abort merge</span></span><br><span class="line">git merge --abort</span><br><span class="line"></span><br><span class="line"><span class="comment"># merge conflicts resolving tools</span></span><br><span class="line">git mergetool</span><br><span class="line"></span><br><span class="line"><span class="comment"># continue merging after resolving conflicts</span></span><br><span class="line">git merge --<span class="built_in">continue</span></span><br><span class="line">git add</span><br><span class="line">git commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># show remotes</span></span><br><span class="line">git remote</span><br><span class="line"></span><br><span class="line"><span class="comment"># add remote</span></span><br><span class="line">git remote add &lt;name&gt; &lt;url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># push to remote</span></span><br><span class="line">git push &lt;remote&gt; &lt;<span class="built_in">local</span> branch&gt;:&lt;remote branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># from remote pull changes</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># fetch remote changes</span></span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line"><span class="comment"># clone from remote</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;url&gt; &lt;folder name&gt;</span><br></pre></td></tr></table></figure>
