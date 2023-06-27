@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>EteroConLab</title>
+  
+  <subtitle>Art is the imposing of a pattern on experience, and our aesthetic enjoyment is recognition of the pattern. ― Alfred North Whitehead</subtitle>
+  <link href="https://eterocell.com/atom.xml" rel="self"/>
+  
+  <link href="https://eterocell.com/"/>
+  <updated>2023-06-27T02:13:27.287Z</updated>
+  <id>https://eterocell.com/</id>
+  
+  <author>
+    <name>Eterocell</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reimagining my blog</title>
+    <link href="https://eterocell.com/posts/4850bb76/"/>
+    <id>https://eterocell.com/posts/4850bb76/</id>
+    <published>2023-01-31T07:16:49.000Z</published>
+    <updated>2023-06-27T02:13:27.287Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
