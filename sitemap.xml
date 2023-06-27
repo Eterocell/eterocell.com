@@ -56,13 +56,6 @@
 
   
   <url>
-    <loc>https://eterocell.com/tags/C940/</loc>
-    <lastmod>2023-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://eterocell.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -71,6 +64,13 @@
   
   <url>
     <loc>https://eterocell.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</loc>
+    <lastmod>2023-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://eterocell.com/tags/C940/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -112,14 +112,14 @@
   </url>
   
   <url>
-    <loc>https://eterocell.com/tags/%E6%B0%B4%E9%A2%98/</loc>
+    <loc>https://eterocell.com/tags/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://eterocell.com/tags/%E5%8D%9A%E5%BC%88/</loc>
+    <loc>https://eterocell.com/tags/%E6%B0%B4%E9%A2%98/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -140,14 +140,14 @@
   </url>
   
   <url>
-    <loc>https://eterocell.com/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <loc>https://eterocell.com/tags/Bitwarden/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://eterocell.com/tags/Bitwarden/</loc>
+    <loc>https://eterocell.com/tags/%E5%8D%9A%E5%BC%88/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -156,14 +156,14 @@
 
   
   <url>
-    <loc>https://eterocell.com/categories/TechColumn/</loc>
+    <loc>https://eterocell.com/categories/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://eterocell.com/categories/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://eterocell.com/categories/TechColumn/</loc>
     <lastmod>2023-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
