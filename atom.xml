@@ -6,7 +6,7 @@
   <link href="https://eterocell.com/atom.xml" rel="self"/>
   
   <link href="https://eterocell.com/"/>
-  <updated>2023-06-27T02:13:27.287Z</updated>
+  <updated>2023-11-30T04:59:22.691Z</updated>
   <id>https://eterocell.com/</id>
   
   <author>
@@ -17,25 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Reimagining my blog</title>
-    <link href="https://eterocell.com/posts/4850bb76/"/>
-    <id>https://eterocell.com/posts/4850bb76/</id>
-    <published>2023-01-31T07:16:49.000Z</published>
-    <updated>2023-06-27T02:13:27.287Z</updated>
+    <title>一次 Git 将 jar 误认为文本文件自动替换换行符引发的血案</title>
+    <link href="https://eterocell.com/posts/ce8d81c3/"/>
+    <id>https://eterocell.com/posts/ce8d81c3/</id>
+    <published>2023-11-30T03:40:25.000Z</published>
+    <updated>2023-11-30T04:59:22.691Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>早上起来 Renovate 提 PR 帮我把 Gradle 更新到了 8.5, 我并没有看为什么CI 报错直接合了, 毕竟 Gradle 从 8.4 更新到 8.5大概率不会出现什么大问题可以合了之后再改, 只不过,,,:</p><span id="more"></span><figure><img src="failed_commits.png" alt="Failed Commits" /><figcaption aria-hidden="true">Failed Commits</figcaption></figure><p>报错的详情为<code>Error: Could not find or load main class org.gradle.wrapper.GradleWrapperMain</code>,因此大概率是运行 <code>./gradlew</code> 时,<code>./gradle/wrapper/gradle-wrapper.jar</code> 有问题. 果然拉回本地后,第一次 <code>./gradlew</code> 报了同样的错, 删除 <code>./gradlew</code>,<code>./gradlew.bat</code>,<code>./gradle/wrapper/gradle-wrapper.jar</code> 之后运行<code>gradle wrapper --gradle-version 8.5 --distribution-type all</code>后再次运行 <code>./gradlew</code> 就可以了. 果断 add, commit 再 push,于是再次报了<code>Error: Could not find or load main class org.gradle.wrapper.GradleWrapperMain</code>.</p><p>之后尝试了很多, 包括 revert 前面升级 actions/setup-java 的 commit,去掉 actions.yml 中保留 Gradle 缓存的步骤等. 但唯一有效的是 revert 升级Gradle 的 commit.</p><p>机缘巧合下, 在 actions 中添加 gradle/wrapper-validation-action 后,报错为 <code>./gradle/wrapper/gradle-wrapper.jar</code> 的 sha256的校验和为 <code>c7b7b1c</code> 开头而非预期的 <code>d3b261c</code> 开头(<a href="https://gradle.org/release-checksums/">可以再这里找到 Gradle各版本 bin, all 和 wrapper jar 的 sha256 checksum</a>),但我本地的校验和又是正确的. 于是删除本地重新拉远程,发现远程的校验和确实是错误的, 于是又重新拉 Gradle wrapper, 本地确认sha256 校验和无误后 commit 上传, 但 CI 仍然报错误校验和. 但发现在 commit的时候报了这个警告:<code>warning: CRLF will be replaced by LF in gradle/wrapper/gradle-wrapper.jar</code>.校验和对不上的原因算是找到了, 于是在 .gitattributes 中添加<code>*.jar -text</code> 规则, 再重新拉 Gradle wrapper commit push就正常了.</p><p>咱也不知道为啥 Git 把 gradle-wrapper.jar 认成了文本文件修改其换行符,不过以后 gradle/wrapper-validation-action 和 <code>*.jar -txt</code>大概会在我的 Actions 和 .gitattributes 中常驻了...</p><h3 id="reference">Reference</h3><ul><li><ahref="https://docs.gradle.org/current/userguide/gradle_wrapper.html#configuring_checksum_verification">GradleWrapper Reference - Configuring Checksum Verification</a></li></ul>]]></content>
     
     
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
+    <summary type="html">&lt;p&gt;早上起来 Renovate 提 PR 帮我把 Gradle 更新到了 8.5, 我并没有看为什么
+CI 报错直接合了, 毕竟 Gradle 从 8.4 更新到 8.5
+大概率不会出现什么大问题可以合了之后再改, 只不过,,,:&lt;/p&gt;</summary>
     
     
     
+    <category term="踩坑记录" scheme="https://eterocell.com/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="Git" scheme="https://eterocell.com/tags/Git/"/>
     
   </entry>
   
