@@ -1,8 +1,8 @@
 https://eterocell.com/about/
 https://eterocell.com/posts/ce8d81c3/
 https://eterocell.com/tags/
-https://eterocell.com/categories/
 https://eterocell.com/archives/
+https://eterocell.com/categories/
 https://eterocell.com/
 https://eterocell.com/tags/Git/
 https://eterocell.com/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/
