@@ -77,15 +77,15 @@ Android LLVM 来获取完整的 <code>clang-18</code>, <code>clang</code>,
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// build.gradle.kts</span></span><br><span class="line">android &#123;</span><br><span class="line">    ndkVersion = <span class="string">&quot;27.0.12077973&quot;</span></span><br><span class="line">    ndkPath = <span class="string">&quot;<span class="variable">$ANDROID_SDK_ROOT</span>/ndk/27.0.12077973-obf&quot;</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        externalNativeBuild &#123;</span><br><span class="line">            cmake &#123;</span><br><span class="line">                <span class="comment">// 混淆插件路径</span></span><br><span class="line">                <span class="keyword">val</span> obfLibDir =</span><br><span class="line">                    <span class="string">&quot;<span class="subst">$&#123;project.layout.projectDirectory.asFile.absolutePath&#125;</span>/obf_lib/darwin_arm64/libHikari.so&quot;</span></span><br><span class="line">                <span class="keyword">val</span> obfArgs = listOf(</span><br><span class="line">                    <span class="string">&quot;-fvisibility=hidden&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;-fpass-plugin=<span class="variable">$obfLibDir</span>&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;-Xclang&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;-load&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;-Xclang&quot;</span>,</span><br><span class="line">                    obfLibDir,</span><br><span class="line">                    <span class="comment">// 混淆参数, 请自行参考 Hikari-LLVM15-Core 原项目配置</span></span><br><span class="line">                    <span class="string">&quot;-mllvm&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;-enable-allobf&quot;</span></span><br><span class="line">                )</span><br><span class="line">                cppFlags += obfArgs</span><br><span class="line">                cFlags += obfArgs</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="结果对比">结果对比</h2>
 <figure>
-<img src="size.png" alt="so 大小" />
+<img data-src="size.png" alt="so 大小" />
 <figcaption aria-hidden="true">so 大小</figcaption>
 </figure>
 <figure>
-<img src="hopper.png" alt="未混淆" />
+<img data-src="hopper.png" alt="未混淆" />
 <figcaption aria-hidden="true">未混淆</figcaption>
 </figure>
 <figure>
-<img src="hopper_obf.png" alt="混淆后" />
+<img data-src="hopper_obf.png" alt="混淆后" />
 <figcaption aria-hidden="true">混淆后</figcaption>
 </figure>
 <h2 id="致谢">致谢</h2>
@@ -108,7 +108,7 @@ CI 报错直接合了, 毕竟 Gradle 从 8.4 更新到 8.5
 大概率不会出现什么大问题可以合了之后再改, 只不过,,,:</p>
 <span id="more"></span>
 <figure>
-<img src="failed_commits.png" alt="Failed Commits" />
+<img data-src="failed_commits.png" alt="Failed Commits" />
 <figcaption aria-hidden="true">Failed Commits</figcaption>
 </figure>
 <p>报错的详情为
